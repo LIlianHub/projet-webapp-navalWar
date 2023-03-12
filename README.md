@@ -15,6 +15,10 @@ Création d'un site Web afin de jouer à deux à une bataille navale
 
 * Angular (Typescript, HTML, SCSS)
 
+### Base de donnée:
+
+* Azure SQL database
+
 ## Notions utlisées
 
 * Notion backend et frontend
