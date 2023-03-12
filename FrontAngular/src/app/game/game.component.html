@@ -1,0 +1,43 @@
+<p-toast></p-toast>
+<div *ngIf="!loading">
+    <div class="top">
+        <div class="left">
+            <h2>Player: {{infoPlayer.name}}</h2>
+        </div>
+        <div class="right">
+            <h2>Game n° {{infoGame.idGame}}</h2>
+        </div>
+    </div>
+    <hr>
+
+    <div *ngIf="infoGame.etatGame === -1">
+        <div class="waitRoom">
+            <h3>En attente d'un adversaire ...</h3>
+            <h3>Veuillez patienter ...</h3>
+            <p-progressSpinner></p-progressSpinner>
+            <hr>
+        </div>
+    </div>
+    <div *ngIf="infoGame.etatGame === 0">
+        <h3>Phase de Preparation</h3>
+        <hr>
+        <app-preparation></app-preparation>
+
+    </div>
+    <div *ngIf="infoGame.etatGame === 1">
+        <h3>Phase de Jeu</h3>
+        <hr>
+        <app-shoot-game></app-shoot-game>
+    </div>
+    <div *ngIf="infoGame.etatGame === 2">
+        <h3>Fin de la Partie</h3>
+        <hr>
+        <app-fin></app-fin>
+    </div>
+
+</div>
+
+<div *ngIf="loading" class="waitRoom">
+    <h3>Loading...</h3>
+    <p-progressSpinner></p-progressSpinner>
+</div>

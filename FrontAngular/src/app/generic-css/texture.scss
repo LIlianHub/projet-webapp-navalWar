@@ -1,0 +1,54 @@
+.CaseBateau {
+    background-image: url("../../assets/texture/boat.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.ShotSuccess {
+    background-image: url("../../assets/texture/boatshot.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.ShotMiss {
+    background-image: url("../../assets/texture/watershot.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.CaseEau {
+    background-image: url("../../assets/texture/water.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.bordure {
+    background-color: white;
+}
+
+.CasePlateauShot:hover {
+
+    box-shadow: -1px 2px 10px 3px rgba(0, 0, 0, 0.3) inset;
+
+}
+
+table {
+    border: collapse;
+    width: 40vw;
+    height: 40vw;
+}
+
+td {
+    border: 1px solid #000000;
+    width: 9.09090909090909%;
+    text-align: center;
+}
+
+
+@media screen and (max-width: 1000px) {
+    table {
+        border: collapse;
+        width: 90vw;
+        height: 90vw;
+    }
+}

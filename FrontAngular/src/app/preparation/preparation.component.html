@@ -1,0 +1,40 @@
+<p-toast></p-toast>
+
+<div class="preparation-container">
+    <h2 [style.color]="infoPlayer.isReady ? 'green' : 'blue'">Votre statut: {{infoPlayer.isReady ? "Prêt" : "En
+        Préparation"}}</h2>
+    <div class="preparation-sous-box">
+        <div class="preparation-box-grid">
+            <table>
+                <tbody>
+                    <tr *ngFor="let ligne of grid">
+                        <td *ngFor="let case of ligne" [class]="case.type === undefined ? 'bordure' : case.type"
+                            (click)="handleRightClick(case.x, case.y, case.type)">
+                            {{case.type === undefined ? case : ''}}
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="preparation-sous-box">
+            <h3>Bateau(x) à placer:</h3>
+            <div class="preparation-box-boat">
+                <button *ngFor="let bateau of bateaux" class="btn btn-primary btn-lg btn-block"
+                    (click)="selectBateau(bateau)" [disabled]="bateau === bateauAposer || deleteBoat">{{bateau.type}} -
+                    {{bateau.length}}
+                </button>
+            </div>
+        </div>
+
+        <h3>Options</h3>
+        <div class="preparation-box-option">
+            <button type="button" (click)="changeOrientation()" class="btn btn-primary btn-lg btn-block ">{{
+                isVertical ? "Vertical" : "Horizontal" }}</button>
+            <button type="button" (click)="changeModeDelete()" class="btn btn-lg btn-block"
+                [class]="deleteBoat ? 'btn-danger' : 'btn-primary'"> {{ deleteBoat ? "Delete Mode" : "Add Mode"
+                }}</button>
+            <button type="button" (click)="validerGrille()" class="btn btn-success btn-lg btn-block">Valider</button>
+        </div>
+
+    </div>
+</div>

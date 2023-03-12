@@ -1,0 +1,35 @@
+<p-toast></p-toast>
+<div class="shotgame-container">
+    <h2 [style.color]="infoGame.auTourDe === infoPlayer.idPlayer ? 'green' : 'red'">{{infoGame.auTourDe === infoPlayer.idPlayer ? "Votre Tour" : "Tour de l'adversaire"}}</h2>
+    <div class="shotgame-grids-container">
+        <div class="shotgame-grid">
+            <h3>Votre Grille</h3>
+            <table>
+                <tbody>
+                    <tr *ngFor="let ligne of gridBoat">
+                        <td *ngFor="let case of ligne" 
+                        [class]="case.type === undefined ? 'bordure' : case.type"
+                        >
+                            {{case.type === undefined ? case : ''}}
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="shotgame-grid">
+            <h3>Tirer</h3>
+            <table>
+                <tbody>
+                    <tr *ngFor="let ligne of gridShoot">
+                        <td *ngFor="let case of ligne" 
+                        [class]="case.type === undefined ? 'bordure' : case.type +  ' CasePlateauShot'"
+                        (click)="shot(case.x, case.y)">
+                            {{case.type === undefined ? case : ''}}
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+    

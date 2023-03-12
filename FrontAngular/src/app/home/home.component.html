@@ -1,0 +1,42 @@
+<p-toast></p-toast>
+
+<div class="big-container">
+  <h1 class="text-center">Naval War OnLine</h1>
+  <hr>
+  <div class="home-container">
+    <div class="home-sousContainer">
+      <h2>Créer une partie</h2>
+      <form [formGroup]="CreateGame" (ngSubmit)="onSubmitCreateGame()" class="form-group">
+        <div>
+          <label>Nom Player</label>
+          <input type="text" name="NameP1" class="form-control" placeholder="Entrer un Nom de Player"
+            formControlName="NameP1" />
+        </div>
+        <button [disabled]="!CreateGame.valid" type="submit" class="btn btn-primary mt-1">Créer</button>
+      </form>
+    </div>
+    <div class="home-sousContainer">
+      <h2>Rejoindre une partie</h2>
+      <form [formGroup]="JoinGame" (ngSubmit)="onSubmitJoinGame()">
+        <div>
+          <label>Nom Player</label>
+          <input type="text" name="NameP2" class="form-control" placeholder="Entrer un Nom de Player"
+            formControlName="NameP2" />
+        </div>
+        <div>
+          <label>IdGame</label>
+          <input min="1" type="number" name="IdGame" class="form-control" formControlName="IdGame" />
+        </div>
+        <button type="submit" [disabled]="!JoinGame.valid" class="btn btn-primary mt-1">Rejoindre</button>
+      </form>
+    </div>
+    
+  </div>
+  <hr>
+
+  <div *ngIf="loadingNewGame" class="loading">
+    <h4>Chargement d'une nouvelle partie veuillez patienter ....</h4>
+
+    <p-progressSpinner></p-progressSpinner>
+  </div>
+</div>

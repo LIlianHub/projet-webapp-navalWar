@@ -1,0 +1,39 @@
+<h2 [style.color]="'green'" *ngIf="infoPlayer.isWinner">Félicitation {{infoPlayer.name}} vous avez vaincu votre adversaire</h2>
+<h2 [style.color]="'red'" *ngIf="!infoPlayer.isWinner">Dommage {{infoPlayer.name}} vous avez perdu</h2>
+
+
+
+<div *ngIf="chargement === 2">
+    <div class="shotgame-grids-container">
+        <div class="shotgame-grid">
+            <h4>Votre Grille</h4>
+            <table>
+                <tbody>
+                    <tr *ngFor="let ligne of gridPlayer">
+                        <td *ngFor="let case of ligne"
+                        [class]="case.type === undefined ? 'bordure' : case.type">
+                            {{case.type === undefined ? case : ''}}
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="shotgame-grid">
+            <h4>Grille de l'adversaire</h4>
+            <table>
+                <tbody>
+                    <tr *ngFor="let ligne of gridEnnemy">
+                        <td *ngFor="let case of ligne"
+                        [class]="case.type === undefined ? 'bordure' : case.type">
+                            {{case.type === undefined ? case : ''}}
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<div *ngIf="chargement !== 2" class="waitRoom">
+    <h1>Loading...</h1>
+    <p-progressSpinner></p-progressSpinner>
+</div>

@@ -1,0 +1,48 @@
+@import '../generic-css/texture.scss';
+
+
+.shotgame-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin-bottom: 2vh;
+}
+
+.shotgame-grids-container{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    margin-top: 5vh;
+}
+
+.shotgame-grid{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+
+
+
+
+@media screen and (max-width: 1000px) {
+    .shotgame-grids-container{
+        flex-direction: column-reverse;
+        
+    }
+    .shotgame-grid{
+        margin-bottom: 10%;
+    }
+    table {
+        border: collapse;
+        width: 90vw;
+        height: 90vw;
+    }
+  }
